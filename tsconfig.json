@@ -1,4 +1,15 @@
 {
-  "compilerOptions": {},
-  "extends": "expo/tsconfig.base"
+	"compilerOptions": {
+		"allowJs": true,
+		"strict": true,
+		"baseUrl": "./src/",
+		"paths": {
+			"*": ["./*"],
+			"@components/*": ["components/*"],
+			"@assets/*": ["../assets/*"]
+		},
+		"types": ["jest"]
+	},
+	"include": ["fonts.d.ts", "**/*.ts", "**/*.tsx"],
+	"extends": "@tsconfig/react-native/tsconfig.json"
 }
