@@ -3,11 +3,12 @@ export interface RoomItemProps {
 	onNavigate: (item: Item) => void
 }
 
+type Status = 'active' | string
 export interface Item {
 	id: string
 	name: string
 	message: string
 	image: string
-	status: 'active' | Date
+	status: Status
 	read: boolean
 }

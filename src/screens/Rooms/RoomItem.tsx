@@ -18,7 +18,7 @@ const RoomItem = (props: RoomItemProps) => {
 		if (item.status === 'active') {
 			return <ActiveStatusIndicator />
 		} else {
-			const dateText = getDateDifference(item.status)
+			const dateText = getDateDifference(new Date(item.status))
 			return <StatusText>{dateText}</StatusText>
 		}
 	})()
