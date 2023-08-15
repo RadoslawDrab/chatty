@@ -1,6 +1,6 @@
 import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 
-import { getDateDifference } from 'utils'
+import { clipText, getDateDifference } from 'utils'
 
 import { ChatParams } from '../../../../App'
 import PhoneIcon from '@assets/icons/phone.svg'
@@ -37,7 +37,7 @@ const ChatHeader = (props: NativeStackHeaderProps) => {
 				<Wrapper $gap={lib.sizing.small}>
 					<ProfileIcon height={44} width={44} />
 					<StatusView>
-						<Name>{params.name}</Name>
+						<Name>{clipText(params.name, 20)}</Name>
 						<Status>{status}</Status>
 					</StatusView>
 				</Wrapper>
