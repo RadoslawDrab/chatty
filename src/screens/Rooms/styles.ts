@@ -29,8 +29,8 @@ export const Info = styles.View`
   gap: 4px;
 `
 export const Name = styles.Text<{ $read: boolean }>`
-  font-size: ${lib.typography.heading[3].fontSize}px;
-  font-weight: ${lib.typography.heading[3].fontWeight};
+  font-size: ${lib.typography.title.fontSize}px;
+  font-weight: ${lib.typography.title.fontWeight};
   ${(props) => {
 		if (props.$read) {
 			return css`
