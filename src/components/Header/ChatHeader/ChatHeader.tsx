@@ -2,7 +2,8 @@ import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 
 import { clipText, getDateDifference } from 'utils'
 
-import { ChatParams } from '../../../../App'
+import { ChatParams } from '../../../../types'
+
 import PhoneIcon from '@assets/icons/phone.svg'
 import VideoIcon from '@assets/icons/videocall.svg'
 import CaretLeftIcon from '@assets/icons/caret-left.svg'
