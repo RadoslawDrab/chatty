@@ -1,9 +1,12 @@
+import { ChatParams } from '../../../types'
+
 export interface RoomItemProps {
-	item: Item
-	onNavigate: (item: Item) => void
+	id: string
+	onNavigate: (options: ChatParams) => void
 }
 
-type Status = 'active' | string
+export type Status = 'active' | string
+
 export interface Item {
 	id: string
 	name: string

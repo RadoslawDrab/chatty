@@ -1,7 +1,7 @@
 import { FlatList, SafeAreaView } from 'react-native'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 
-import { AppStackParamList } from '../../App'
+import { AppStackParamList, ChatParams } from '../../types'
 
 import { Item } from './Rooms/types'
 import RoomItem from './Rooms/RoomItem'
@@ -38,12 +38,8 @@ const RoomsScreen = (props: NativeStackScreenProps<AppStackParamList, 'Rooms'>) 
 		}
 	]
 
-	function navigateToChat(item: Item) {
-		props.navigation.navigate('Chat', {
-			name: item.name,
-			status: item.status,
-			image: item.image
-		})
+	function navigateToChat(params: ChatParams) {
+		props.navigation.navigate('Chat', params)
 	}
 
 	return (

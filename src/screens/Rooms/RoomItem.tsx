@@ -31,7 +31,7 @@ const RoomItem = (props: RoomItemProps) => {
 				...styles.container,
 				...(!item.read ? { backgroundColor: lib.colors.primary[500] } : {})
 			}}>
-			<Pressable onPress={() => props.onNavigate(item)}>
+			<Pressable onPress={() => props.onNavigate({ roomId: props.id, name: item.name, status: item.status })}>
 				{item.image ? <Image source={{}} /> : <ProfileIcon />}
 				<Info>
 					<Name $read={item.read}>{item.name}</Name>

@@ -1,9 +1,11 @@
+import { Status } from 'screens/Rooms/types'
+
 export type AppStackParamList = {
 	Rooms: undefined
 	Chat: ChatParams
 }
 export type ChatParams = {
-	image: string
+	roomId: string
 	name: string
-	status: 'active' | Date
+	status: Status
 }
