@@ -1,17 +1,18 @@
-import { View, ViewStyle } from 'react-native'
-
-import { ContainerProps } from './types.modal'
+import { BorderRadiusBox, ContainerProps } from './types.modal'
 
 import lib from 'styles/library'
+import { ContainerBox } from './styles'
 
 const Container = (props: ContainerProps) => {
-	const styles = (() => {
+	const borderRadiusBox = (() => {
 		const { borderRadius, variant } = props
 
-		// Sets default padding and styles from parent
-		let styles: ViewStyle = {
-			padding: lib.sizing.small,
-			...props.styles
+		// Sets default border radius to 0
+		let styles: BorderRadiusBox = {
+			topLeft: 0,
+			topRight: 0,
+			bottomLeft: 0,
+			bottomRight: 0
 		}
 		// Gets border radius size based on container variant. Default is `small`
 		const borderRadiusSize = (() => {
@@ -25,14 +26,18 @@ const Container = (props: ContainerProps) => {
 
 		// Sets border radius of each corner based on `borderRadius` props
 		if (borderRadius) {
-			if (borderRadius.topLeft || borderRadius.all || borderRadius.top) styles.borderTopLeftRadius = borderRadiusSize
-			if (borderRadius.topRight || borderRadius.all || borderRadius.top) styles.borderTopRightRadius = borderRadiusSize
-			if (borderRadius.bottomLeft || borderRadius.all || borderRadius.bottom) styles.borderBottomLeftRadius = borderRadiusSize
-			if (borderRadius.bottomRight || borderRadius.all || borderRadius.bottom) styles.borderBottomRightRadius = borderRadiusSize
+			if (borderRadius.topLeft || borderRadius.all || borderRadius.top) styles.topLeft = borderRadiusSize
+			if (borderRadius.topRight || borderRadius.all || borderRadius.top) styles.topRight = borderRadiusSize
+			if (borderRadius.bottomLeft || borderRadius.all || borderRadius.bottom) styles.bottomLeft = borderRadiusSize
+			if (borderRadius.bottomRight || borderRadius.all || borderRadius.bottom) styles.bottomRight = borderRadiusSize
 		}
 		return styles
 	})()
 
-	return <View style={styles}>{props.children}</View>
+	return (
+		<ContainerBox $borderRadiusBox={borderRadiusBox} {...props.styles}>
+			{props.children}
+		</ContainerBox>
+	)
 }
 export default Container
