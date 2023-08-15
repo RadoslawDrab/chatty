@@ -1,6 +1,7 @@
 import { clipText, getDateDifference } from 'utils'
+import { useRoom } from 'hooks/useRoom'
 
-import { RoomItemProps } from './types'
+import { RoomItemProps, Item } from './types'
 
 import Container from 'components/Container/Container'
 import ProfileIcon from '@assets/icons/profile.svg'
@@ -9,7 +10,21 @@ import styles, { Pressable, Message, Name, Image, Info, Status, StatusText, Acti
 import lib from 'styles/library'
 
 const RoomItem = (props: RoomItemProps) => {
-	const { item } = props
+	const { loading, error, data: room } = useRoom(props.id)
+
+	if (loading || error) {
+		return <></>
+	}
+
+	const item: Item = {
+		id: room.id,
+		name: room.name,
+		message: room.messages[0].body ?? '',
+		image: '',
+		// There's no status checking so status is dependent on last sent message
+		status: room.messages[0].insertedAt ?? 'active',
+		read: false
+	}
 
 	const maxMessageLength = 40
 	const message = clipText(item.message, maxMessageLength)
