@@ -8,3 +8,4 @@ declare module '@env' {
 	export const GRAPHQL_SERVER_URL: string
 	export const GRAPHQL_TOKEN: string
 }
+declare module '*.ttf'

@@ -10,6 +10,6 @@
 		},
 		"types": ["jest"]
 	},
-	"include": ["fonts.d.ts", "declarations.d.ts", "**/*.ts", "**/*.tsx"],
+	"include": ["types.d.ts", "**/*.ts", "**/*.tsx", "**/*modal.ts"],
 	"extends": "@tsconfig/react-native/tsconfig.json"
 }
