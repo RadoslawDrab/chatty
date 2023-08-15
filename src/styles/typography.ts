@@ -1,4 +1,32 @@
-export default {
+type DefaultText = {
+	fontWeight: string
+	fontSize: number
+	fontFamily: string
+}
+interface Styles {
+	heading: {
+		1: DefaultText
+		2: DefaultText
+		3: DefaultText
+		4: DefaultText
+	}
+	button: Button
+	label: DefaultText
+	title: TextExtended
+	caption: TextExtended
+	body: {
+		text: DefaultText
+		caption: TextExtended
+		specialText: TextExtended
+	}
+}
+interface Button extends DefaultText {
+	letterSpacing: number
+}
+interface TextExtended extends DefaultText {
+	lineHeight: number
+}
+const styles: Styles = {
 	heading: {
 		1: {
 			fontFamily: 'Poppins',
@@ -64,3 +92,4 @@ export default {
 		}
 	}
 }
+export default styles
