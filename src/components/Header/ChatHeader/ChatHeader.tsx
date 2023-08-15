@@ -20,7 +20,7 @@ const ChatHeader = (props: NativeStackHeaderProps) => {
 		if (status === 'active') {
 			return 'Active now'
 		} else {
-			return getDateDifference(status)
+			return getDateDifference(new Date(status))
 		}
 	})()
 	return (
