@@ -32,7 +32,7 @@ const RoomItem = (props: RoomItemProps) => {
 				...(!item.read ? { backgroundColor: lib.colors.primary[500] } : {})
 			}}>
 			<Pressable onPress={() => props.onNavigate({ roomId: props.id, name: item.name, status: item.status })}>
-				{item.image ? <Image source={{}} /> : <ProfileIcon />}
+				{item.image ? <Image source={{}} /> : <ProfileIcon width={64} height={64} />}
 				<Info>
 					<Name $read={item.read}>{item.name}</Name>
 					<Message $read={item.read}>{message}</Message>
