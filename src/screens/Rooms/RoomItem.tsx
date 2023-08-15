@@ -1,4 +1,4 @@
-import { getDateDifference } from 'utils'
+import { clipText, getDateDifference } from 'utils'
 
 import { RoomItemProps } from './types'
 
@@ -12,10 +12,7 @@ const RoomItem = (props: RoomItemProps) => {
 	const { item } = props
 
 	const maxMessageLength = 40
-	// Adds ... at the of the message if message has characters' length greather than `maxMessageLength`
-	const message = `${item.message.substring(0, maxMessageLength)}${'.'.repeat(
-		Math.max(Math.min(item.message.length - maxMessageLength, 3), 0)
-	)}`
+	const message = clipText(item.message, maxMessageLength)
 
 	const status = (() => {
 		if (item.status === 'active') {
