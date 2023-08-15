@@ -1,14 +1,14 @@
 import { NativeStackHeaderProps } from '@react-navigation/native-stack'
+
+import { getDateDifference } from 'utils'
+
 import { ChatParams } from '../../../../App'
-
-import Button from 'components/Button/Button'
-import IconButton from 'components/Button/IconButton/IconButton'
-
 import PhoneIcon from '@assets/icons/phone.svg'
 import VideoIcon from '@assets/icons/videocall.svg'
 import CaretLeftIcon from '@assets/icons/caret-left.svg'
 import ProfileIcon from '@assets/icons/profile.svg'
-
+import Button from 'components/Button/Button'
+import IconButton from 'components/Button/IconButton/IconButton'
 import { Wrapper } from '../styles'
 import { Name, Status, StatusView } from './styles'
 import lib from 'styles/library'
@@ -20,7 +20,7 @@ const ChatHeader = (props: NativeStackHeaderProps) => {
 		if (status === 'active') {
 			return 'Active now'
 		} else {
-			return 'Last seen: ' + new Date(status).toLocaleTimeString()
+			return getDateDifference(status)
 		}
 	})()
 	return (
