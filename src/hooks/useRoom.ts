@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client'
 
 import { GET_ROOM, GET_USERS_ROOMS } from 'api/queries'
-import { RoomType, RoomsType } from 'api/types'
+import { RoomType, RoomsType } from 'api/types.modal'
 
 export const useRoom = (roomId: string) => {
 	const { loading, error, data } = useQuery(GET_ROOM, {

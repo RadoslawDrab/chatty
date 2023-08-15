@@ -1,7 +1,7 @@
 import { clipText, getDateDifference } from 'utils'
 import { useRoom } from 'hooks/useRoom'
 
-import { RoomItemProps, Item } from './types'
+import { RoomItemProps, Item } from './types.modal'
 
 import Container from 'components/Container/Container'
 import ProfileIcon from '@assets/icons/profile.svg'

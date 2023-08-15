@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { IconButtonProps } from './types'
+import { IconButtonProps } from './types.modal'
 
 import Button from '../Button'
 

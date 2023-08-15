@@ -1,4 +1,5 @@
 import { SvgProps } from 'react-native-svg'
+
 import { ButtonProps } from '../types.modal'
 
 export interface IconButtonProps extends ButtonProps {

@@ -2,17 +2,18 @@ import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 
 import { clipText, getDateDifference } from 'utils'
 
-import { ChatParams } from '../../../../types'
+import { ChatParams } from '../../../types.modal'
 
-import PhoneIcon from '@assets/icons/phone.svg'
-import VideoIcon from '@assets/icons/videocall.svg'
 import CaretLeftIcon from '@assets/icons/caret-left.svg'
+import PhoneIcon from '@assets/icons/phone.svg'
 import ProfileIcon from '@assets/icons/profile.svg'
+import VideoIcon from '@assets/icons/videocall.svg'
 import Button from 'components/Button/Button'
 import IconButton from 'components/Button/IconButton/IconButton'
+
+import lib from 'styles/library'
 import { Wrapper } from '../styles'
 import { Name, Status, StatusView } from './styles'
-import lib from 'styles/library'
 
 const ChatHeader = (props: NativeStackHeaderProps) => {
 	const params: ChatParams = props.route.params as ChatParams

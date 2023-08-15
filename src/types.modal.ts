@@ -1,4 +1,4 @@
-import { Status } from 'screens/Rooms/types'
+import { Status } from 'screens/Rooms/types.modal'
 
 export type AppStackParamList = {
 	Rooms: undefined

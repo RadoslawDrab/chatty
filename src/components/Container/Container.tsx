@@ -1,7 +1,7 @@
 import { BorderRadiusBox, ContainerProps } from './types.modal'
 
-import lib from 'styles/library'
 import { ContainerBox } from './styles'
+import lib from 'styles/library'
 
 const Container = (props: ContainerProps) => {
 	const borderRadiusBox = (() => {

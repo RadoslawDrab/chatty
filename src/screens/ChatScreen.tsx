@@ -4,7 +4,7 @@ import { GiftedChat, IMessage } from 'react-native-gifted-chat'
 
 import { useRoom } from 'hooks/useRoom'
 
-import { AppStackParamList } from '../../types'
+import { AppStackParamList } from '../types.modal'
 
 const ChatScreen = (props: NativeStackScreenProps<AppStackParamList, 'Chat'>) => {
 	const { loading, error, data: room } = useRoom(props.route.params.roomId)

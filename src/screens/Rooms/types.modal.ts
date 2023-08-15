@@ -1,4 +1,4 @@
-import { ChatParams } from '../../../types'
+import { ChatParams } from '../../types.modal'
 
 export interface RoomItemProps {
 	id: string

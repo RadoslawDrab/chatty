@@ -9,7 +9,7 @@ import * as SplashScreen from 'expo-splash-screen'
 
 import apolloClient from 'api/index'
 
-import { AppStackParamList } from './types'
+import { AppStackParamList } from './src/types.modal'
 
 import ChatScreen from 'screens/ChatScreen'
 import RoomsScreen from 'screens/RoomsScreen'

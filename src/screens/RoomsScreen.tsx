@@ -3,7 +3,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack'
 
 import { useUsersRooms } from 'hooks/useRoom'
 
-import { AppStackParamList, ChatParams } from '../../types'
+import { AppStackParamList, ChatParams } from '../types.modal'
 
 import RoomItem from './Rooms/RoomItem'
 
