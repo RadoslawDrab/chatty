@@ -25,6 +25,19 @@ module.exports = function (api) {
 					extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
 					alias: getAliases()
 				}
+			],
+			[
+				'module:react-native-dotenv',
+				{
+					envName: 'APP_ENV',
+					moduleName: '@env',
+					path: '.env',
+					blocklist: null,
+					allowlist: null,
+					safe: false,
+					allowUndefined: true,
+					verbose: false
+				}
 			]
 		]
 	}
