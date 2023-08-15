@@ -13,3 +13,7 @@ export function getDateDifference(date: Date): string {
 		return `${minutesDiff} min ago`
 	}
 }
+export function clipText(text: string, maxLength: number = 50) {
+	// Adds ... at the of the text if text has characters' length greather than `maxLength`
+	return `${text.substring(0, maxLength)}${'.'.repeat(Math.max(Math.min(text.length - maxLength, 3), 0))}`
+}
