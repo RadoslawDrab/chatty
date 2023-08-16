@@ -14,6 +14,7 @@ export default StyleSheet.create({
 })
 
 export const Pressable = styles.Pressable`
+	flex-shrink: 1;
   position: relative;
   display: flex;
   flex-direction: row;
@@ -24,11 +25,14 @@ export const Image = styles.Image`
   width: 64px;
 `
 export const Info = styles.View`
+	flex-shrink: 1;
   display: flex;
   align-items: flex-start;
   gap: 4px;
 `
 export const Name = styles.Text<{ $read: boolean }>`
+	flex-shrink: 1;
+	max-width: 85%;
   font-size: ${lib.typography.title.fontSize}px;
   font-weight: ${lib.typography.title.fontWeight};
   ${(props) => {
