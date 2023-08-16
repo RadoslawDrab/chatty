@@ -5,7 +5,9 @@ export interface Data {
 }
 
 export interface RoomsType {
-	rooms: SingleRoomType[]
+	usersRooms: {
+		rooms: SingleRoomType[]
+	}
 	user: UserType
 }
 export interface SingleRoomType {
@@ -29,8 +31,5 @@ export interface Message {
 	body: string
 	id: string
 	insertedAt: string
-	user: {
-		id: string
-		firstName: string
-	}
+	user: UserType
 }
