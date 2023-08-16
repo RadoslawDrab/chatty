@@ -33,3 +33,7 @@ export interface Message {
 	insertedAt: string
 	user: UserType
 }
+export interface SessionType {
+	token: string
+	user: UserType
+}
