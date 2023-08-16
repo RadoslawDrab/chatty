@@ -1,6 +1,4 @@
 import { ApolloProvider } from '@apollo/client'
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React, { useCallback } from 'react'
 import { View } from 'react-native'
 
@@ -42,17 +40,12 @@ export default function App() {
 	}
 
 	return (
-		<PageBackground>
+		<AppContextWrapper>
 			<ApolloProvider client={apolloClient}>
-				<NavigationContainer>
-					<View onLayout={onLayoutRootView}>
-						<Stack.Navigator initialRouteName="Rooms" screenOptions={{ header: Header }}>
-							<Stack.Screen name="Rooms" component={RoomsScreen} />
-							<Stack.Screen name="Chat" component={ChatScreen} />
-						</Stack.Navigator>
-					</View>
-				</NavigationContainer>
+				<View onLayout={onLayoutRootView}>
+				<AppWrapper />
+				</View>
 			</ApolloProvider>
-		</PageBackground>
+		</AppContextWrapper>
 	)
 }
