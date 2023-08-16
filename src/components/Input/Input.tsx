@@ -17,6 +17,7 @@ const Input = (props: InputProps) => {
 	function onClear() {
 		setText('')
 		if (props.onClear) props.onClear()
+		if (props.onTextChange) props.onTextChange('')
 	}
 	return (
 		<InputWrapper>
@@ -30,7 +31,7 @@ const Input = (props: InputProps) => {
 				$states={{ ...props.states, focus: focused }}
 				$borderRadius={props.borderRadius ?? {}}
 			/>
-			{text && focused && <ClearIcon style={styles.button} onPress={onClear} />}
+			{(props.text ?? text) && focused && <ClearIcon style={styles.button} onPress={onClear} />}
 		</InputWrapper>
 	)
 }
