@@ -15,6 +15,7 @@ import ChatScreen from 'screens/ChatScreen'
 import RoomsScreen from 'screens/RoomsScreen'
 
 import Header from 'components/Header/Header'
+import { PageBackground } from 'styles/generic'
 
 const fonts = {
 	PoppinsMedium: require('./assets/fonts/Poppins-Medium.ttf'),
@@ -41,15 +42,17 @@ export default function App() {
 	}
 
 	return (
-		<ApolloProvider client={apolloClient}>
-			<NavigationContainer>
-				<View onLayout={onLayoutRootView}>
-					<Stack.Navigator initialRouteName="Rooms" screenOptions={{ header: Header }}>
-						<Stack.Screen name="Rooms" component={RoomsScreen} />
-						<Stack.Screen name="Chat" component={ChatScreen} />
-					</Stack.Navigator>
-				</View>
-			</NavigationContainer>
-		</ApolloProvider>
+		<PageBackground>
+			<ApolloProvider client={apolloClient}>
+				<NavigationContainer>
+					<View onLayout={onLayoutRootView}>
+						<Stack.Navigator initialRouteName="Rooms" screenOptions={{ header: Header }}>
+							<Stack.Screen name="Rooms" component={RoomsScreen} />
+							<Stack.Screen name="Chat" component={ChatScreen} />
+						</Stack.Navigator>
+					</View>
+				</NavigationContainer>
+			</ApolloProvider>
+		</PageBackground>
 	)
 }
