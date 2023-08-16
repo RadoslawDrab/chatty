@@ -12,6 +12,7 @@ import { AppStackParamList } from 'types.modal'
 
 import ChatScreen from 'screens/ChatScreen'
 import RoomsScreen from 'screens/RoomsScreen'
+import LoginScreen from 'screens/LoginScreen'
 
 import Error from '@components/Error/Error'
 import Header from '@components/Header/Header'
@@ -45,9 +46,10 @@ const AppWrapper = () => {
 	return (
 		<PageBackground>
 			<NavigationContainer>
-				<Stack.Navigator initialRouteName="Rooms" screenOptions={{ header: Header }}>
+				<Stack.Navigator initialRouteName="Login" screenOptions={{ header: Header }}>
 					<Stack.Screen name="Rooms" component={RoomsScreen} />
 					<Stack.Screen name="Chat" component={ChatScreen} />
+					<Stack.Screen name="Login" component={LoginScreen} />
 				</Stack.Navigator>
 			</NavigationContainer>
 		</PageBackground>
