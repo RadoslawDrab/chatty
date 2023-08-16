@@ -7,6 +7,10 @@ export const PageBackground = styles.View`
   flex: 1;
   background-color: ${lib.colors.secondary[100]};
 `
+export const PageBackgroundAlternative = styles.View`
+  flex: 1;
+  background-color: ${lib.colors.secondary[300]};
+`
 export const PageBackgroundStyleSheet = StyleSheet.create({
 	style: {
 		flex: 1,
