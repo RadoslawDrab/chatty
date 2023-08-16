@@ -7,13 +7,8 @@ import * as SplashScreen from 'expo-splash-screen'
 
 import apolloClient from 'api/index'
 
-import { AppStackParamList } from './src/types.modal'
-
-import ChatScreen from 'screens/ChatScreen'
-import RoomsScreen from 'screens/RoomsScreen'
-
-import Header from 'components/Header/Header'
-import { PageBackground } from 'styles/generic'
+import AppContextWrapper from 'context/AppContextWrapper'
+import AppWrapper from 'components/AppWrapper'
 
 const fonts = {
 	PoppinsMedium: require('./assets/fonts/Poppins-Medium.ttf'),
