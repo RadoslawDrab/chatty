@@ -1,6 +1,5 @@
-import { GestureResponderEvent } from 'react-native'
+import { GestureResponderEvent, StyleProp, ViewStyle } from 'react-native'
 import { SvgProps } from 'react-native-svg'
-import { Styles } from 'styled-components/native/dist/types'
 
 export interface ButtonProps {
 	text?: string
@@ -8,7 +7,7 @@ export interface ButtonProps {
 	onPress?: (event: GestureResponderEvent) => void
 	children?: JSX.Element
 	variant?: Variant
-	style?: Styles<object>
+	style?: StyleProp<ViewStyle>
 	iconComponent?: React.FC<SvgProps>
 	iconStyles?: SvgProps
 	onActive?: (isActive: boolean) => void

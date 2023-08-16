@@ -24,6 +24,7 @@ const Button = (props: ButtonProps) => {
 			onPressOut={onPressOut}
 			onPressIn={onPressIn}
 			disabled={props.disabled}
+			style={props.style}
 			$active={isActive}
 			$variant={props.variant}>
 			{props?.children}
