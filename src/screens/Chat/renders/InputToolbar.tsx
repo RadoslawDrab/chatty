@@ -1,15 +1,16 @@
-import { View } from 'react-native'
 import { IMessage, InputToolbar, InputToolbarProps } from 'react-native-gifted-chat'
 
 import { renderComposer } from './Composer'
+
+import { PageBackground } from 'styles/generic'
 
 import styles, { Background } from './styles'
 
 export function renderInputToolbar(props: InputToolbarProps<IMessage>) {
 	return (
-		<View style={{ flex: 1 }}>
-			<InputToolbar {...props} primaryStyle={styles.toolbar} renderComposer={renderComposer} />
+		<PageBackground>
+			<InputToolbar {...props} containerStyle={styles.toolbar} renderComposer={renderComposer} />
 			<Background />
-		</View>
+		</PageBackground>
 	)
 }

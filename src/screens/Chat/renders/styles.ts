@@ -12,7 +12,8 @@ export default StyleSheet.create({
 		backgroundColor: lib.colors.secondary[300],
 		borderTopLeftRadius: lib.sizing.small,
 		borderTopRightRadius: lib.sizing.small,
-		padding: lib.sizing.medium
+		padding: lib.sizing.medium,
+		borderTopWidth: 0
 	},
 	input: {
 		marginRight: lib.sizing.small
@@ -48,9 +49,9 @@ export default StyleSheet.create({
 export const Background = styles.View`
   position: absolute;
   z-index: -1;
-  top: 0;
+  top: 50px;
   left: 0;
   width: 100%;
-  height: 200px;
+  height: 100%;
   background-color: ${lib.colors.secondary[300]};
 `
