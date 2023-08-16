@@ -29,63 +29,63 @@ interface TextExtended extends DefaultText {
 const styles: Styles = {
 	heading: {
 		1: {
-			fontFamily: 'Poppins',
+			fontFamily: 'PoppinsBold',
 			fontWeight: '700',
 			fontSize: 36
 		},
 		2: {
-			fontFamily: 'Poppins',
+			fontFamily: 'PoppinsBold',
 			fontWeight: '700',
 			fontSize: 28
 		},
 		3: {
-			fontFamily: 'Poppins',
+			fontFamily: 'PoppinsBold',
 			fontWeight: '700',
 			fontSize: 22
 		},
 		4: {
-			fontFamily: 'Poppins',
+			fontFamily: 'PoppinsSemiBold',
 			fontWeight: '600',
 			fontSize: 16
 		}
 	},
 	button: {
-		fontFamily: 'Poppins',
+		fontFamily: 'PoppinsSemiBold',
 		fontWeight: '600',
 		fontSize: 16,
 		letterSpacing: 1
 	},
 	label: {
-		fontFamily: 'Poppins',
+		fontFamily: 'PoppinsMedium',
 		fontWeight: '500',
 		fontSize: 16
 	},
 	title: {
-		fontFamily: 'Poppins',
+		fontFamily: 'PoppinsMedium',
 		fontWeight: '500',
 		fontSize: 15,
 		lineHeight: 20
 	},
 	caption: {
-		fontFamily: 'Poppins',
+		fontFamily: 'PoppinsRegular',
 		fontWeight: '400',
 		fontSize: 10,
 		lineHeight: 10
 	},
 	body: {
 		text: {
-			fontFamily: 'SF Compact Text',
+			fontFamily: 'SFCompactTextRegular',
 			fontWeight: '400',
 			fontSize: 14
 		},
 		caption: {
-			fontFamily: 'SF Compact Display',
+			fontFamily: 'SFCompactDisplayBold',
 			fontWeight: '700',
 			fontSize: 12,
 			lineHeight: 16
 		},
 		specialText: {
-			fontFamily: 'SF Compact Display',
+			fontFamily: 'SFCompactDisplayRegular',
 			fontWeight: '400',
 			fontSize: 12,
 			lineHeight: 16

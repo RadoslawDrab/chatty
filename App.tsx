@@ -1,43 +1,35 @@
 import { ApolloProvider } from '@apollo/client'
-import React, { useCallback } from 'react'
-import { View } from 'react-native'
+import React from 'react'
+import { ActivityIndicator, View } from 'react-native'
 
 import { useFonts } from 'expo-font'
-import * as SplashScreen from 'expo-splash-screen'
 
 import apolloClient from 'api/index'
 
-import AppContextWrapper from 'context/AppContextWrapper'
 import AppWrapper from 'components/AppWrapper'
+import AppContextWrapper from 'context/AppContextWrapper'
 
 const fonts = {
 	PoppinsMedium: require('./assets/fonts/Poppins-Medium.ttf'),
 	PoppinsRegular: require('./assets/fonts/Poppins-Regular.ttf'),
 	PoppinsSemiBold: require('./assets/fonts/Poppins-SemiBold.ttf'),
-	PoppinsBold: require('./assets/fonts/Poppins-Bold.ttf')
+	PoppinsBold: require('./assets/fonts/Poppins-Bold.ttf'),
+	SFCompactTextRegular: require('./assets/fonts/SF-Compact-Text-Regular.ttf'),
+	SFCompactDisplayRegular: require('./assets/fonts/SF-Compact-Display-Regular.ttf'),
+	SFCompactDisplayBold: require('./assets/fonts/SF-Compact-Display-Bold.ttf')
 }
-
-// SplashScreen.preventAutoHideAsync()
 
 export default function App() {
 	const [fontsLoaded, fontError] = useFonts(fonts)
 
-	const onLayoutRootView = useCallback(async () => {
-		if (fontsLoaded || fontError) {
-			await SplashScreen.hideAsync()
-		}
-	}, [fontsLoaded, fontError])
-
-	if (!fontsLoaded && !fontError) {
-		return null
+	if (fontError) {
+		return <ActivityIndicator />
 	}
 
 	return (
 		<AppContextWrapper>
 			<ApolloProvider client={apolloClient}>
-				<View onLayout={onLayoutRootView}>
-				<AppWrapper />
-				</View>
+				<View style={{ flex: 1 }}>{fontsLoaded ? <AppWrapper /> : <ActivityIndicator />}</View>
 			</ApolloProvider>
 		</AppContextWrapper>
 	)

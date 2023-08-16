@@ -12,4 +12,5 @@ export const ErrorText = styles.Text`
   color: ${lib.colors.white};
   font-size: ${lib.typography.heading[4].fontSize}px;
   font-weight: ${lib.typography.heading[4].fontWeight}px;
+  font-family: ${lib.typography.heading[4].fontFamily};
 `
