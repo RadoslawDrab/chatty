@@ -7,19 +7,21 @@ const httpLink = createHttpLink({
 	uri: GRAPHQL_SERVER_URL
 })
 
-const authLink = setContext((_, { headers }) => {
-	const token = GRAPHQL_TOKEN
+export default getClient(GRAPHQL_TOKEN)
 
-	// Return the headers to the context so httpLink can read them
-	return {
-		headers: {
-			...headers,
-			authorization: token ? `Bearer ${token}` : ''
+// Gets Apollo Client based on given token
+export function getClient(token: string) {
+	const authLink = setContext((_, { headers }) => {
+		// Return the headers to the context so httpLink can read them
+		return {
+			headers: {
+				...headers,
+				authorization: token ? `Bearer ${token}` : ''
+			}
 		}
-	}
-})
-const client = new ApolloClient({
-	link: authLink.concat(httpLink),
-	cache: new InMemoryCache()
-})
-export default client
+	})
+	return new ApolloClient({
+		link: authLink.concat(httpLink),
+		cache: new InMemoryCache()
+	})
+}

@@ -3,6 +3,7 @@ import { css } from 'styled-components'
 import styles from 'styled-components/native'
 
 import lib from 'styles/library'
+import { getCssText } from 'utils/styles'
 
 export default StyleSheet.create({
 	container: {
@@ -33,10 +34,7 @@ export const Info = styles.View`
 export const Name = styles.Text<{ $read: boolean }>`
 	flex-shrink: 1;
 	max-width: 85%;
-  font-size: ${lib.typography.title.fontSize}px;
-  font-weight: ${lib.typography.title.fontWeight};
-  font-family: ${lib.typography.title.fontFamily};
-  line-height: ${lib.typography.title.lineHeight}px;
+	${getCssText('title')}
   ${(props) => {
 		if (props.$read) {
 			return css`
@@ -50,9 +48,7 @@ export const Name = styles.Text<{ $read: boolean }>`
 	}}
 `
 export const Message = styles.Text<{ $read: boolean }>`
-  font-size: ${lib.typography.body.text.fontSize}px;
-  font-weight: ${lib.typography.body.text.fontWeight};
-  font-family: ${lib.typography.body.text.fontFamily};
+	${getCssText('body.text')}
   ${(props) => {
 		if (props.$read) {
 			return css`
@@ -77,9 +73,5 @@ export const ActiveStatusIndicator = styles.View`
   width: ${lib.sizing.small}px;
 `
 export const StatusText = styles.Text`
-  font-size: ${lib.typography.body.specialText.fontSize}px;
-  font-weight: ${lib.typography.body.specialText.fontWeight};
-  font-family: ${lib.typography.body.specialText.fontFamily};
-  line-height: ${lib.typography.body.specialText.lineHeight}px;
-  color: ${lib.colors.gray[500]};
+	${getCssText('body.specialText', lib.colors.gray[500])}
 `
