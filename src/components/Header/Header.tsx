@@ -1,11 +1,10 @@
 import { SafeAreaView } from 'react-native'
 import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 
-import Container from 'components/Container/Container'
 import RoomsHeader from './RoomsHeader/RoomsHeader'
 import ChatHeader from './ChatHeader/ChatHeader'
 
-import styles, { Background } from './styles'
+import { Background, ContainerWrapper } from './styles'
 
 const Header = (props: NativeStackHeaderProps) => {
 	const content = (() => {
@@ -21,10 +20,10 @@ const Header = (props: NativeStackHeaderProps) => {
 
 	return (
 		<SafeAreaView>
-			<Container borderRadius={{ bottom: true }} variant="big" styles={styles.header}>
+			<ContainerWrapper>
 				<Background />
 				{content}
-			</Container>
+			</ContainerWrapper>
 		</SafeAreaView>
 	)
 }

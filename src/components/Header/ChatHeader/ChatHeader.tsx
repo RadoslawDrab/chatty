@@ -27,7 +27,7 @@ const ChatHeader = (props: NativeStackHeaderProps) => {
 	})()
 	return (
 		<>
-			<Wrapper $gap={4}>
+			<Wrapper $gap={4} style={{ justifyContent: 'flex-start', maxWidth: '70%' }}>
 				<IconButton
 					variant="transparent"
 					onPress={props.navigation.goBack}
@@ -36,15 +36,15 @@ const ChatHeader = (props: NativeStackHeaderProps) => {
 					activeIconStyle={{ color: lib.colors.primary[500] }}
 					inactiveIconStyle={{ color: lib.colors.primary[700] }}
 				/>
-				<Wrapper $gap={lib.sizing.small}>
+				<Wrapper $gap={lib.sizing.small} style={{ maxWidth: '90%' }}>
 					<ProfileIcon height={44} width={44} />
 					<StatusView>
-						<Name>{clipText(params.name, 20)}</Name>
+						<Name>{clipText(params.name, 35)}</Name>
 						<Status>{status}</Status>
 					</StatusView>
 				</Wrapper>
 			</Wrapper>
-			<Wrapper>
+			<Wrapper style={{ maxWidth: '25%' }}>
 				<Button variant="circle" iconComponent={PhoneIcon} />
 				<Button variant="circle" iconComponent={VideoIcon} />
 			</Wrapper>
