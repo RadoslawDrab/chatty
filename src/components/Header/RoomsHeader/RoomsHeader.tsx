@@ -1,6 +1,6 @@
 import RoomsIcon from '@assets/icons/rooms.svg'
 import SearchIcon from '@assets/icons/search.svg'
-import Button from 'components/Button/Button'
+import IconButton from 'components/Button/IconButton/IconButton'
 
 import { Wrapper } from '../styles'
 import { Text } from './styles'
@@ -10,8 +10,8 @@ const RoomsHeader = (props: any) => {
 		<>
 			<Text>{props.route.name}</Text>
 			<Wrapper>
-				<Button variant="circle" iconComponent={SearchIcon} />
-				<Button variant="circle" iconComponent={RoomsIcon} />
+				<IconButton variant="circle" iconComponent={SearchIcon} />
+				<IconButton variant="circle" iconComponent={RoomsIcon} />
 			</Wrapper>
 		</>
 	)

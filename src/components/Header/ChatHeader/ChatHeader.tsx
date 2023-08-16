@@ -8,7 +8,6 @@ import CaretLeftIcon from '@assets/icons/caret-left.svg'
 import PhoneIcon from '@assets/icons/phone.svg'
 import ProfileIcon from '@assets/icons/profile.svg'
 import VideoIcon from '@assets/icons/videocall.svg'
-import Button from 'components/Button/Button'
 import IconButton from 'components/Button/IconButton/IconButton'
 
 import lib from 'styles/library'
@@ -45,8 +44,8 @@ const ChatHeader = (props: NativeStackHeaderProps) => {
 				</Wrapper>
 			</Wrapper>
 			<Wrapper style={{ maxWidth: '25%' }}>
-				<Button variant="circle" iconComponent={PhoneIcon} />
-				<Button variant="circle" iconComponent={VideoIcon} />
+				<IconButton variant="circle" iconComponent={PhoneIcon} />
+				<IconButton variant="circle" iconComponent={VideoIcon} />
 			</Wrapper>
 		</>
 	)
