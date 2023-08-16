@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { useCallback, useEffect, useState } from 'react'
-import { SafeAreaView } from 'react-native'
+import { ActivityIndicator, SafeAreaView, Text } from 'react-native'
 import { GiftedChat, IMessage } from 'react-native-gifted-chat'
 
 import useApp from 'hooks/useApp'
@@ -20,13 +20,6 @@ const ChatScreen = (props: NativeStackScreenProps<AppStackParamList, 'Chat'>) =>
 	const { loading, error, room } = useRoom(props.route.params.roomId)
 
 	const [messages, setMessages] = useState<IMessage[]>([])
-
-	if (loading) {
-		return <></>
-	}
-	if (error) {
-		return <></>
-	}
 
 	useEffect(() => {
 		if (room)
@@ -50,26 +43,34 @@ const ChatScreen = (props: NativeStackScreenProps<AppStackParamList, 'Chat'>) =>
 		setMessages((previousMessages: IMessage[]) => GiftedChat.append(previousMessages, messages))
 	}, [])
 
+	if (error) {
+		return <Text>{error.message}</Text>
+	}
+
 	return (
 		<PageBackground>
 			<SafeAreaView style={{ flex: 1 }}>
-				<GiftedChat
-					messages={messages}
-					onSend={(messages: []) => onSend(messages)}
-					user={{
-						_id: state.user.id
-					}}
-					alwaysShowSend
-					renderTime={() => <></>}
-					renderSend={renderSend}
-					renderBubble={renderBubble}
-					forceGetKeyboardHeight
-					renderInputToolbar={renderInputToolbar}
-					messagesContainerStyle={{
-						paddingBottom: lib.sizing.medium * 4,
-						marginBottom: -32
-					}}
-				/>
+				{!loading ? (
+					<GiftedChat
+						messages={messages}
+						onSend={(messages: []) => onSend(messages)}
+						user={{
+							_id: state.user.id
+						}}
+						alwaysShowSend
+						renderTime={() => <></>}
+						renderSend={renderSend}
+						renderBubble={renderBubble}
+						forceGetKeyboardHeight
+						renderInputToolbar={renderInputToolbar}
+						messagesContainerStyle={{
+							paddingBottom: lib.sizing.medium * 4,
+							marginBottom: -32
+						}}
+					/>
+				) : (
+					<ActivityIndicator />
+				)}
 			</SafeAreaView>
 		</PageBackground>
 	)

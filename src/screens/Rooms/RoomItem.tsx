@@ -1,3 +1,5 @@
+import { ActivityIndicator, Text } from 'react-native'
+
 import { clipText, getDateDifference } from 'utils'
 import { useRoom } from 'hooks/useRoom'
 
@@ -12,8 +14,8 @@ import lib from 'styles/library'
 const RoomItem = (props: RoomItemProps) => {
 	const { loading, error, room } = useRoom(props.id)
 
-	if (loading || error) {
-		return <></>
+	if (error) {
+		return <Text>{error.message}</Text>
 	}
 
 	const item: Item = {
@@ -49,8 +51,14 @@ const RoomItem = (props: RoomItemProps) => {
 			<Pressable onPress={() => props.onNavigate({ roomId: props.id, name: item.name, status: item.status })}>
 				{item.image ? <Image source={{}} /> : <ProfileIcon width={64} height={64} />}
 				<Info>
-					<Name $read={item.read}>{item.name}</Name>
-					<Message $read={item.read}>{message}</Message>
+					{loading ? (
+						<ActivityIndicator />
+					) : (
+						<>
+							<Name $read={item.read}>{item.name}</Name>
+							<Message $read={item.read}>{message}</Message>
+						</>
+					)}
 				</Info>
 				<Status>{status}</Status>
 			</Pressable>
