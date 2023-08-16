@@ -1,9 +1,21 @@
+import { StyleSheet } from 'react-native'
 import { css } from 'styled-components'
 import styles from 'styled-components/native'
 
 import { Variant } from './types.modal'
 
 import lib from 'styles/library'
+
+export default StyleSheet.create({
+	svgIconActive: {
+		fill: lib.colors.primary[500],
+		color: lib.colors.white
+	},
+	svgIconInactive: {
+		fill: lib.colors.white,
+		color: lib.colors.primary[500]
+	}
+})
 
 export const Pressable = styles.Pressable<{ $active: boolean; $variant?: Variant }>`
 	background-color: ${lib.colors.primary[500]};
