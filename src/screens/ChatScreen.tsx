@@ -3,6 +3,8 @@ import { useCallback, useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native'
 import { GiftedChat, IMessage } from 'react-native-gifted-chat'
 
+import useApp from 'hooks/useApp'
+import useMessage from 'hooks/useMessage'
 import { useRoom } from 'hooks/useRoom'
 import { renderBubble, renderInputToolbar, renderSend } from './Chat/renders'
 
@@ -13,6 +15,8 @@ import { PageBackground } from 'styles/generic'
 import lib from 'styles/library'
 
 const ChatScreen = (props: NativeStackScreenProps<AppStackParamList, 'Chat'>) => {
+	const [state] = useApp()
+	const { mutation: sendMessage } = useMessage()
 	const { loading, error, room } = useRoom(props.route.params.roomId)
 
 	const [messages, setMessages] = useState<IMessage[]>([])
@@ -40,6 +44,9 @@ const ChatScreen = (props: NativeStackScreenProps<AppStackParamList, 'Chat'>) =>
 	}, [room])
 
 	const onSend = useCallback((messages: IMessage[] = []) => {
+		messages.forEach(async (message) => {
+			await sendMessage({ variables: { body: message.text, roomId: props.route.params.roomId } })
+		})
 		setMessages((previousMessages: IMessage[]) => GiftedChat.append(previousMessages, messages))
 	}, [])
 
@@ -50,7 +57,7 @@ const ChatScreen = (props: NativeStackScreenProps<AppStackParamList, 'Chat'>) =>
 					messages={messages}
 					onSend={(messages: []) => onSend(messages)}
 					user={{
-						_id: 1
+						_id: state.user.id
 					}}
 					alwaysShowSend
 					renderTime={() => <></>}
