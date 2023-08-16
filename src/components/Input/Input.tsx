@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { InputProps } from './types.modal'
 
@@ -7,8 +7,12 @@ import ClearIcon from '@assets/icons/clear.svg'
 import styles, { TextInput, InputWrapper } from './styles'
 
 const Input = (props: InputProps) => {
-	const [text, setText] = useState<string>('')
+	const [text, setText] = useState<string>(props.attr?.defaultValue ?? '')
 	const [focused, setFocused] = useState<boolean>(false)
+
+	useEffect(() => {
+		if (props.onTextChange) props.onTextChange(text)
+	}, [])
 
 	function onChangeText(text: string) {
 		setText(text)
