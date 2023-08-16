@@ -2,6 +2,8 @@ import { StyleSheet } from 'react-native'
 import { css } from 'styled-components'
 import styles from 'styled-components/native'
 
+import { getCssText } from 'utils/styles'
+
 import { BorderRadiusBox } from 'components/Container/types.modal'
 import { States } from './types.modal'
 
@@ -19,15 +21,10 @@ export default StyleSheet.create({
 	}
 })
 
-// font-family: ${lib.typography.title.fontFamily};
-
 export const TextInput = styles.TextInput<{ $states: Partial<States> | undefined; $borderRadius: Partial<BorderRadiusBox> }>`
+	${getCssText('title', lib.colors.black)}
   background-color: ${lib.colors.white};
   padding: ${lib.sizing.small}px ${lib.sizing.medium}px;
-  font-weight: ${lib.typography.title.fontWeight};
-  font-size: ${lib.typography.title.fontSize}px;
-  line-height: ${lib.typography.title.lineHeight}px;
-  color: ${lib.colors.black};
   border: 2px solid transparent;
 
   ${(props) => {

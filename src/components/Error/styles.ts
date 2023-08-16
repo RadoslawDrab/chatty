@@ -1,5 +1,7 @@
 import styles from 'styled-components/native'
 
+import { getCssText } from 'utils/styles'
+
 import lib from 'styles/library'
 
 export const ErrorView = styles.View`
@@ -9,8 +11,5 @@ export const ErrorView = styles.View`
   margin: ${lib.sizing.small}px;
 `
 export const ErrorText = styles.Text`
-  color: ${lib.colors.white};
-  font-size: ${lib.typography.heading[4].fontSize}px;
-  font-weight: ${lib.typography.heading[4].fontWeight}px;
-  font-family: ${lib.typography.heading[4].fontFamily};
+  ${getCssText('heading.4', lib.colors.white)}
 `

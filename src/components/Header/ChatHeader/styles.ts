@@ -1,5 +1,7 @@
 import styles from 'styled-components/native'
 
+import { getCssText } from 'utils/styles'
+
 import lib from 'styles/library'
 
 export const StatusView = styles.View`
@@ -10,14 +12,9 @@ export const StatusView = styles.View`
 `
 export const Name = styles.Text`
   flex-shrink: 1;
-  color: ${lib.colors.primary[500]};
-  font-weight: ${lib.typography.heading[4].fontWeight};
-  font-size: ${lib.typography.heading[4].fontSize}px;
-  font-family: ${lib.typography.heading[4].fontFamily};
+  ${getCssText('heading.4', lib.colors.primary[500])}
 `
 export const Status = styles.Text`
-  color: ${lib.colors.white};
-  font-weight: ${lib.typography.body.text.fontWeight};
-  font-size: ${lib.typography.body.text.fontSize}px;
-  font-family: ${lib.typography.body.text.fontFamily};
+${getCssText('body.text', lib.colors.white)}
+
 `

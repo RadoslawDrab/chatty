@@ -2,6 +2,8 @@ import { StyleSheet } from 'react-native'
 import { css } from 'styled-components'
 import styles from 'styled-components/native'
 
+import { getCssText } from 'utils/styles'
+
 import { Variant } from './types.modal'
 
 import lib from 'styles/library'
@@ -64,9 +66,5 @@ export const Pressable = styles.Pressable<{ $active: boolean; $variant?: Variant
 `
 
 export const Text = styles.Text`
-	color: ${lib.colors.white};
-	font-size: ${lib.typography.button.fontSize}px;
-	font-weight: ${lib.typography.button.fontWeight};
-	font-family: ${lib.typography.button.fontFamily};
-	letter-spacing: ${lib.typography.button.letterSpacing}px;
+	${getCssText('button', lib.colors.white)}
 `
