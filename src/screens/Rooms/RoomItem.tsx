@@ -1,21 +1,22 @@
-import { ActivityIndicator, Text } from 'react-native'
+import { ActivityIndicator } from 'react-native'
 
-import { clipText, getDateDifference } from 'utils'
 import { useRoom } from 'hooks/useRoom'
+import { clipText, getDateDifference } from 'utils'
 
-import { RoomItemProps, Item } from './types.modal'
+import { Item, RoomItemProps } from './types.modal'
 
-import Container from 'components/Container/Container'
 import ProfileIcon from '@assets/icons/profile.svg'
+import Container from 'components/Container/Container'
+import Error from 'components/Error/Error'
 
-import styles, { Pressable, Message, Name, Image, Info, Status, StatusText, ActiveStatusIndicator } from './styles'
 import lib from 'styles/library'
+import styles, { ActiveStatusIndicator, Image, Info, Message, Name, Pressable, Status, StatusText } from './styles'
 
 const RoomItem = (props: RoomItemProps) => {
 	const { loading, error, room } = useRoom(props.id)
 
 	if (error) {
-		return <Text>{error.message}</Text>
+		return <Error error={error.message} />
 	}
 
 	const item: Item = {

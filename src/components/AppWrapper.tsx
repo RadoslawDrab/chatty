@@ -13,8 +13,8 @@ import { AppStackParamList } from 'types.modal'
 import ChatScreen from 'screens/ChatScreen'
 import RoomsScreen from 'screens/RoomsScreen'
 
+import Error from '@components/Error/Error'
 import Header from '@components/Header/Header'
-
 import { PageBackground } from 'styles/generic'
 
 const Stack = createNativeStackNavigator<AppStackParamList>()
@@ -36,10 +36,10 @@ const AppWrapper = () => {
 		return <ActivityIndicator />
 	}
 	if (userError) {
-		return <Text>Error: {userError.message}</Text>
+		return <Error error={userError.message} />
 	}
 	if (roomsError) {
-		return <Text>Error: {roomsError.message}</Text>
+		return <Error error={roomsError.message} />
 	}
 
 	return (

@@ -10,6 +10,7 @@ import { renderBubble, renderInputToolbar, renderSend } from './Chat/renders'
 
 import { AppStackParamList } from '../types.modal'
 
+import Error from 'components/Error/Error'
 import { PageBackground } from 'styles/generic'
 
 import lib from 'styles/library'
@@ -44,7 +45,7 @@ const ChatScreen = (props: NativeStackScreenProps<AppStackParamList, 'Chat'>) =>
 	}, [])
 
 	if (error) {
-		return <Text>{error.message}</Text>
+		return <Error error={error.message} />
 	}
 
 	return (
@@ -61,7 +62,6 @@ const ChatScreen = (props: NativeStackScreenProps<AppStackParamList, 'Chat'>) =>
 						renderTime={() => <></>}
 						renderSend={renderSend}
 						renderBubble={renderBubble}
-						forceGetKeyboardHeight
 						renderInputToolbar={renderInputToolbar}
 						messagesContainerStyle={{
 							paddingBottom: lib.sizing.medium * 4,
