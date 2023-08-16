@@ -1,5 +1,6 @@
 import { ActivityIndicator } from 'react-native'
 
+import useApp from 'hooks/useApp'
 import { useRoom } from 'hooks/useRoom'
 import { clipText, getDateDifference } from 'utils'
 
@@ -13,6 +14,7 @@ import lib from 'styles/library'
 import styles, { ActiveStatusIndicator, Image, Info, Message, Name, Pressable, Status, StatusText } from './styles'
 
 const RoomItem = (props: RoomItemProps) => {
+	const [state] = useApp()
 	const { loading, error, room } = useRoom(props.id)
 
 	if (error) {
@@ -24,9 +26,9 @@ const RoomItem = (props: RoomItemProps) => {
 		name: room?.name ?? '',
 		message: room?.messages[0].body ?? '',
 		image: '',
-		// There's no status checking so status is dependent on last sent message
-		status: room?.messages[0].insertedAt ?? 'active',
-		read: false
+		// There's no status checking so status is dependent on last sent message not by current user
+		status: room?.messages.find((message) => message.user.id !== state.user.id)?.insertedAt ?? 'active',
+		read: true
 	}
 
 	const maxMessageLength = 40
