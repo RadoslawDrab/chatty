@@ -6,6 +6,7 @@ import { useUsersRooms } from 'hooks/useRoom'
 import { AppStackParamList, ChatParams } from '../types.modal'
 
 import RoomItem from './Rooms/RoomItem'
+import { PageBackground } from 'styles/generic'
 
 import lib from 'styles/library'
 
@@ -26,13 +27,15 @@ const RoomsScreen = (props: NativeStackScreenProps<AppStackParamList, 'Rooms'>) 
 	}
 
 	return (
-		<SafeAreaView style={{ marginTop: lib.sizing.big }}>
-			<FlatList
-				data={rooms}
-				renderItem={(id) => <RoomItem id={id.item} onNavigate={navigateToChat} />}
-				keyExtractor={(id) => id}
-			/>
-		</SafeAreaView>
+		<PageBackground>
+			<SafeAreaView style={{ flex: 1, marginTop: lib.sizing.big }}>
+				<FlatList
+					data={rooms}
+					renderItem={(id) => <RoomItem id={id.item} onNavigate={navigateToChat} />}
+					keyExtractor={(id) => id}
+				/>
+			</SafeAreaView>
+		</PageBackground>
 	)
 }
 export default RoomsScreen
