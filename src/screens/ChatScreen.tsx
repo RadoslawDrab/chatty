@@ -13,7 +13,7 @@ import { PageBackground } from 'styles/generic'
 import lib from 'styles/library'
 
 const ChatScreen = (props: NativeStackScreenProps<AppStackParamList, 'Chat'>) => {
-	const { loading, error, data: room } = useRoom(props.route.params.roomId)
+	const { loading, error, room } = useRoom(props.route.params.roomId)
 
 	const [messages, setMessages] = useState<IMessage[]>([])
 
@@ -25,17 +25,18 @@ const ChatScreen = (props: NativeStackScreenProps<AppStackParamList, 'Chat'>) =>
 	}
 
 	useEffect(() => {
-		setMessages(
-			room.messages.map((message) => ({
-				_id: message.id,
-				text: message.body,
-				createdAt: new Date(message.insertedAt),
-				user: {
-					_id: message.user.id,
-					name: message.user.firstName
-				}
-			}))
-		)
+		if (room)
+			setMessages(
+				room.messages.map((message) => ({
+					_id: message.id,
+					text: message.body,
+					createdAt: new Date(message.insertedAt),
+					user: {
+						_id: message.user.id,
+						name: message.user.firstName
+					}
+				}))
+			)
 	}, [room])
 
 	const onSend = useCallback((messages: IMessage[] = []) => {

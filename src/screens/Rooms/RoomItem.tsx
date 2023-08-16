@@ -10,19 +10,19 @@ import styles, { Pressable, Message, Name, Image, Info, Status, StatusText, Acti
 import lib from 'styles/library'
 
 const RoomItem = (props: RoomItemProps) => {
-	const { loading, error, data: room } = useRoom(props.id)
+	const { loading, error, room } = useRoom(props.id)
 
 	if (loading || error) {
 		return <></>
 	}
 
 	const item: Item = {
-		id: room.id,
-		name: room.name,
-		message: room.messages[0].body ?? '',
+		id: room?.id ?? '',
+		name: room?.name ?? '',
+		message: room?.messages[0].body ?? '',
 		image: '',
 		// There's no status checking so status is dependent on last sent message
-		status: room.messages[0].insertedAt ?? 'active',
+		status: room?.messages[0].insertedAt ?? 'active',
 		read: false
 	}
 
