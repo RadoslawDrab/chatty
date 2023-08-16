@@ -3,10 +3,7 @@ import { css } from 'styled-components'
 
 import { BorderRadiusBox } from './types.modal'
 
-import lib from 'styles/library'
-
 export const ContainerBox = styles.View<{ $borderRadiusBox: BorderRadiusBox }>`
-  padding: ${lib.sizing.small}px;
   ${(props) => {
 		const { topLeft, topRight, bottomLeft, bottomRight } = props.$borderRadiusBox
 		return css`
