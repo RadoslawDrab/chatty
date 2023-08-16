@@ -17,9 +17,7 @@ const fonts = {
 	PoppinsBold: require('./assets/fonts/Poppins-Bold.ttf')
 }
 
-const Stack = createNativeStackNavigator<AppStackParamList>()
-
-SplashScreen.preventAutoHideAsync()
+// SplashScreen.preventAutoHideAsync()
 
 export default function App() {
 	const [fontsLoaded, fontError] = useFonts(fonts)
