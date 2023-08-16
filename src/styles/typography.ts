@@ -1,5 +1,5 @@
 type DefaultText = {
-	fontWeight: string
+	fontWeight: '700' | '600' | '500' | '400' | 'normal' | 'bold' | '100' | '200' | '300' | '800' | '900'
 	fontSize: number
 	fontFamily: string
 }
